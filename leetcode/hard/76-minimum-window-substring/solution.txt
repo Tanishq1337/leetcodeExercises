@@ -2,6 +2,7 @@ class Solution {
 public:
     bool isEqual(const vector<int>& a, const vector<int>& b){
         for(int i = 0; i < 256; i++){
+            if(b[i] == 0) continue;
             if(a[i] < b[i])
                 return false;
         }
@@ -24,14 +25,4 @@ public:
 
         for(int right = 0; right < n; right++){
             have[s[right]]++;
-            int len = right - left + 1;
-
-            while(isEqual(have, need)){
-                if(len < res){
-                    startIdx = left;
-                    res = len;
-                }
-                have[s[left]]--;
-                left++;
-                len = right - left + 1;
-            }
+  
